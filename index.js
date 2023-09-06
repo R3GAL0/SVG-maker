@@ -5,7 +5,7 @@ const Triangle = require('./lib/triangle');
 const Square = require('./lib/square');
 const SVG = require('./lib/svg');
 
-function askQuestions () {
+function askQuestions() {
     inquirer
         .prompt([
             {
@@ -22,7 +22,7 @@ function askQuestions () {
                 type: 'list',
                 name: 'shape',
                 message: 'Pick the SVG shape',
-                choices: ['circle', 'triange', 'square']
+                choices: ['circle', 'triangle', 'square']
             },
             {
                 type: 'input',
@@ -32,10 +32,10 @@ function askQuestions () {
         ])
         .then((data) => {
             let myLogo;
-            switch(data.shape){
-                case 'circle': 
-                myLogo = new Circle();
-                break;
+            switch (data.shape) {
+                case 'circle':
+                    myLogo = new Circle();
+                    break;
 
                 case 'triangle':
                     myLogo = new Triangle();
@@ -57,9 +57,9 @@ function askQuestions () {
         });
 }
 
-function writeSVG (fileName, data) {
+function writeSVG(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
-        err?console.log(err):console.log('Generated SVG file');
+        err ? console.log(err) : console.log('Generated SVG file');
     })
 }
 
